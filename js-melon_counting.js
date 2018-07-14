@@ -1,7 +1,9 @@
+"use strict";
 
-# Our customers are going to buy lots of melons!
+// Javascript translation of python file.
+// MELONS! MELONS! MELONS!
 
-melons_to_add = ['Ogen', 'Horned Melon', 'Watermelon', 'Casaba',
+const melonsToAdd = ['Ogen', 'Horned Melon', 'Watermelon', 'Casaba',
                  'Sharlyn', 'Xigua', 'Ogen', 'Christmas', 'Christmas',
                  'Christmas', 'Christmas', 'Watermelon', 'Sharlyn', 'Xigua',
                  'Cantaloupe', 'Christmas', 'Watermelon', 'Christmas',
@@ -11,21 +13,19 @@ melons_to_add = ['Ogen', 'Horned Melon', 'Watermelon', 'Casaba',
                  'Horned Melon', 'Sharlyn', 'Cantaloupe', 'Christmas',
                  'Horned Melon', 'Horned Melon', 'Horned Melon', 'Xigua', 'Xigua',
                  'Watermelon', 'Cantaloupe', 'Casaba', 'Cantaloupe', 'Casaba',
-                 'Watermelon', 'Santa Claus', 'Casaba']
+                 'Watermelon', 'Santa Claus', 'Casaba'];
 
+function countMelons(melonList) {
+    let melonCounts = new Map();
 
-def count_melons(melon_list):
-    """Takes in a list, and returns a dictionary with melon counts."""
+    for (let melon of melonList) {
+        if (melonCounts.has(melon)) {
+            melonCounts.set(melon, melonCounts.get(melon) + 1);
+        } else {
+            melonCounts.set(melon, 1);
+        }
+    }
+    return melonCounts;
+}
 
-    melon_counts = {}
-
-    for melon in melon_list:
-        if melon in melon_counts:
-            melon_counts[melon] = melon_counts[melon] + 1
-
-        else:
-            melon_counts[melon] = 1
-
-    return melon_counts
-
-print(count_melons(melons_to_add))
+console.log(countMelons(melonsToAdd));
